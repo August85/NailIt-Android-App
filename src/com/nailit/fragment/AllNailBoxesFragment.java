@@ -12,13 +12,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.content.Context;
+
+//allnailboxesparentlistview
 
 public class AllNailBoxesFragment extends Fragment  {
 	 @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
 	  
+	     ListView nailBoxListView;
 	     OuterNailWrapperModelAdapter adapter;
 	     ArrayList<OuterNailWrapperModel> outerNailWrappers = new ArrayList<OuterNailWrapperModel>();
 	     
@@ -31,9 +35,11 @@ public class AllNailBoxesFragment extends Fragment  {
 	     adapter = new OuterNailWrapperModelAdapter(getActivity().getApplicationContext(), outerNailWrappers);
 	     
 	     
+	     nailBoxListView = (ListView) getActivity().findViewById(R.id.allnailboxesparentlistview);
+	     nailBoxListView.setAdapter(adapter);
 	     
-	        View rootView = inflater.inflate(R.layout.fragment_all_nailboxes, container, false);
-	          
-	        return rootView;
+        View rootView = inflater.inflate(R.layout.fragment_all_nailboxes, container, false);
+          
+        return rootView;
 	    }
 }
