@@ -1,1 +1,1 @@
-This is the android app for Nail It.
+This is the android app for Nail It.Will work in tandom with chrome extension and web-interface of NailIt.
