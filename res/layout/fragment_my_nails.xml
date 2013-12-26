@@ -1,22 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-     
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <ImageView
+        android:id="@+id/outernailicon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dip"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_launcher" />
+
     <TextView
-        android:id="@+id/txtLabel"
-         android:layout_width="wrap_content"
+        android:id="@+id/secondlineouternailbox"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="16dp"
-        android:text="Home View"/>
-     
-    <ImageView android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
-        android:src="@drawable/ic_launcher"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
-     
- 
-</RelativeLayout>
+        android:layout_above="@+id/firstlineouternailbox"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="60dp"
+        android:gravity="center_vertical"
+        android:text="Example application"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/firstlineouternailbox"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="60dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Description"
+        android:textSize="12sp" />
+
+</RelativeLayout> 
