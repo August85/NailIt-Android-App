@@ -21,6 +21,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -170,18 +171,20 @@ public class MainActivity extends Activity {
     private void displayView(int position) {
         // update the main content by replacing fragments
         Fragment fragment = null;
+        ListFragment listfragment = null;
         switch (position) {
         case 0:
             fragment = new ArchiveFragment();
             break;
         case 1:
-            fragment = new MyNailsFragment();
+            //fragment = new MyNailsFragment();
+        	listfragment = new AllNailBoxesFragment();
             break;
         case 2:
             fragment = new SettingsFragment();
             break;
         case 3:
-            fragment = new AllNailBoxesFragment();
+            listfragment = new AllNailBoxesFragment();
             break;
         case 4:
             fragment = new MostHammeredFragment();
@@ -204,7 +207,23 @@ public class MainActivity extends Activity {
             mDrawerList.setSelection(position);
             setTitle(navMenuTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
-        } else {
+        } else if(listfragment != null) {
+//        	adapter = new NavDrawerListAdapter(getApplicationContext(),
+//                    navDrawerItems);
+//        	mDrawerList.setAdapter(adapter);
+        	
+        	
+        	FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, fragment).commit();
+ 
+            // update selected item and title, then close the drawer
+            mDrawerList.setItemChecked(position, true);
+            mDrawerList.setSelection(position);
+            setTitle(navMenuTitles[position]);
+            mDrawerLayout.closeDrawer(mDrawerList);
+        }
+        else {
             // error in creating fragment
             Log.e("MainActivity", "Error in creating fragment");
         }
